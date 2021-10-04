@@ -55,6 +55,6 @@ class Account::JobsController < Account::BaseController
   end
 
   def job_params
-    params.require(:job).permit(:name, :account_id)
+    params.require(:job).permit(:name, @user_id)
   end
 end

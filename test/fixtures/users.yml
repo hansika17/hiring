@@ -11,6 +11,9 @@ regular:
   first_name: Aashish
   last_name: Dhawan
   email: aashishdhawan@crownstack.com
+  job: ios
+  role: senior
+  discipline: engineering
   confirmed_at: 2021-03-18
   sign_in_count: 1 
   
@@ -19,6 +22,9 @@ actor:
   first_name: Rachita
   last_name: Agnihotri
   email: rachita@crownstack.com
+  job: ios
+  role: senior
+  discipline: engineering
   confirmed_at: 2021-03-18
   sign_in_count: 1
 

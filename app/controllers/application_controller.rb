@@ -12,4 +12,29 @@ class ApplicationController < ActionController::Base
   def set_redirect_path
     @redirect_path = request.path
   end
+
+  def show_referenced_alert(exception)
+    respond_to do |format|
+      format.turbo_stream {
+        render turbo_stream: turbo_stream.replace("modal", partial: "shared/modal", locals: { title: "Unable to Delete Record", message: "This record has been associated with other records in system therefore deleting this might result in unexpected behavior. If you want to delete this please make sure all assosications have been removed first.", main_button_visible: false })
+      }
+    end
+  end
+
+  def user_not_authorized
+    redirect_to(request.referrer || root_path(script_name: ""))
+  end
+
+  def signed_in_root_path(resource)
+    root_path(script_name: "")
+  end
+
+  def record_not_found
+    user_not_authorized
+  end
+
+  def invalid_token
+    sign_out(current_user) if current_user
+    redirect_to new_user_session_path, alert: "Your session has expired. Please login again."
+  end
 end

@@ -1,4 +1,5 @@
 class Account::SkillsController < Account::BaseController
+  include ActionView::RecordIdentifier
   before_action :set_skill, only: %i[ show edit update destroy ]
 
   def index
@@ -43,7 +44,6 @@ class Account::SkillsController < Account::BaseController
 
   def destroy
     authorize :account
-
     @skill.destroy
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@skill) }
@@ -57,6 +57,6 @@ class Account::SkillsController < Account::BaseController
   end
 
   def skill_params
-    params.require(:skill).permit(:name, :account_id)
+    params.require(:skill).permit(:name, @user_id)
   end
 end

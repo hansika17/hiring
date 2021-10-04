@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   namespace :account do
     resources :skills, except: [:new, :show]
     resources :jobs, except: [:new, :show]
+    resources :roles, except: [:new, :show]
+    resources :disciplines, except: [:new, :show]
     resources :people_tags, except: [:new, :show]
-    resources :project_tags, except: [:new, :show]
-    resources :tags, except: [:new, :show]
   end
 
   scope "/settings" do

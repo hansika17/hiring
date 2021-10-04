@@ -3,13 +3,12 @@ class Account::PeopleTagsController < Account::BaseController
 
   def index
     authorize :account
-
     @people_tags = PeopleTag.all.order(created_at: :desc)
     @people_tag = PeopleTag.new
   end
 
   def edit
-    authorize :account
+    authorize @user
   end
 
   def create
@@ -56,6 +55,6 @@ class Account::PeopleTagsController < Account::BaseController
   end
 
   def people_tag_params
-    params.require(:people_tag).permit(:name, :account_id, :color)
+    params.require(:people_tag).permit(:name, :color)
   end
 end

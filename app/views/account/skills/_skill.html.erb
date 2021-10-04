@@ -4,7 +4,11 @@
       <p class="w-full text-sm font-medium text-gray-900"><%= skill.name.upcase_first %></p>
       <div class="flex">
         <%= link_to "Edit", edit_account_skill_path(skill), class: "btn-inline-edit" %>
-        <%= link_to "Delete", account_skill_path(skill), method: :delete, class: "btn-inline-delete pl-2" %>
+        <%= link_to "Delete", account_skill_path(skill),
+                    data: {
+                      "turbo-method": :delete,
+                    },
+                    class: "btn-inline-delete pl-2" %>
       </div>
     </div>
   </li>

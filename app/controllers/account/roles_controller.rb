@@ -57,6 +57,6 @@ class Account::RolesController < Account::BaseController
   end
 
   def role_params
-    params.require(:role).permit(:name, :account_id)
+    params.require(:role).permit(:name, @user_id)
   end
 end

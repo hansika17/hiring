@@ -5,7 +5,9 @@
       <p class="w-full ml-2 text-sm font-medium text-gray-900"><%= people_tag.name.titleize %></p>
       <div class="flex">
         <%= link_to "Edit", edit_account_people_tag_path(people_tag), class: "btn-inline-edit" %>
-        <%= link_to "Delete", account_people_tag_path(people_tag), method: :delete, class: "btn-inline-delete pl-2" %>
+        <%= link_to "Delete", account_people_tag_path(people_tag), data: {
+                                                                     "turbo-method": :delete,
+                                                                   }, class: "btn-inline-delete pl-2" %>
       </div>
     </div>
   </li>

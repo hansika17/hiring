@@ -13,7 +13,7 @@ class Account::DisciplinesController < Account::BaseController
   end
 
   def create
-    authorize :account
+    authorize @user
 
     @discipline = Discipline.new(discipline_params)
 
@@ -64,6 +64,6 @@ class Account::DisciplinesController < Account::BaseController
 
   # Only allow a list of trusted parameters through.
   def discipline_params
-    params.require(:discipline).permit(:name, :account_id)
+    params.require(:discipline).permit(:name, @user_id)
   end
 end

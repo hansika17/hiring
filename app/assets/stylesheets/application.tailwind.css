@@ -35,13 +35,13 @@
 }
 .nav-button
 {
-    @apply relative inline-flex items-center px-3 py-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500
+    @apply relative inline-flex items-center px-3 py-1.5 border border-transparent shadow-sm text-xs font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500
 }
 .nav-unselected {
     @apply text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium
 }
 .svg-icon {
-    @apply text-gray-400 hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6;
+    @apply text-gray-400 hover:text-gray-500 flex-shrink-0 -ml-1 mr-2 h-6 w-6;
 }
 .selected {
     @apply bg-gray-200 text-gray-900 hover:bg-gray-200 rounded-md px-3 py-1 flex items-center text-sm font-medium;

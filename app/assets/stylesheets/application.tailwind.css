@@ -31,11 +31,14 @@
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
 }
 .nav-selected {
-    @apply bg-gray-500 text-white hover:bg-gray-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium;
+    @apply bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium;
 }
-
+.nav-button
+{
+    @apply relative inline-flex items-center px-3 py-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500
+}
 .nav-unselected {
-    @apply text-gray-300 hover:bg-gray-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium;
+    @apply text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium
 }
 .svg-icon {
     @apply text-gray-400 hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6;

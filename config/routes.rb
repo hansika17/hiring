@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :jobs, except: [:new, :show]
     resources :people_tags, except: [:new, :show]
     resources :project_tags, except: [:new, :show]
+    resources :tags, except: [:new, :show]
   end
 
   scope "/settings" do
@@ -19,6 +20,4 @@ Rails.application.routes.draw do
     patch "/password", to: "user#update_password", as: "edit_password"
     get "/preferences", to: "user#preferences", as: "user_preferences"
   end
-  get "account/details", to: "account/account#index", as: "detail"
-  patch "account/:id", to: "account/account#update", as: "update_account"
 end

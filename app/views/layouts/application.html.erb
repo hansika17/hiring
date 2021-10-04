@@ -4,12 +4,13 @@
     <title>Hiring</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body>
+    <%= render "shared/header" %>
+    <p class="text-sm font-medium text-center notice bg-green-50"><%= notice %></p>
+    <p class="text-sm font-medium text-center alert bg-red-50"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

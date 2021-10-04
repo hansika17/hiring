@@ -17,16 +17,17 @@ gem "jsbundling-rails", "~> 0.1.0"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails", ">= 0.7.11"
-
+gem "pundit"
+gem "devise-pwned_password"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails", ">= 0.4.0"
-
+gem "devise_invitable", "~> 2.0.0"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails", ">= 0.1.0"
-
+gem "devise", github: "ghiculescu/devise", branch: "patch-2"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder", "~> 2.7"
-
+gem "rexml"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 

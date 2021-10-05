@@ -87,9 +87,7 @@ class SurveysTest < ApplicationSystemTestCase
     visit page_url
     find(id: dom_id(@survey)).click
     within "#survey-header" do
-      page.accept_confirm do
-        click_on "Clone"
-      end
+      click_on "Clone"
     end
     take_screenshot
     assert_selector "p.notice", text: "Survey was cloned successfully."
@@ -99,9 +97,7 @@ class SurveysTest < ApplicationSystemTestCase
     visit page_url
     find(id: dom_id(@survey)).click
     within "#survey-header" do
-      page.accept_confirm do
-        click_on "Delete"
-      end
+      click_on "Delete"
     end
     take_screenshot
     assert_selector "p.notice", text: "Survey was removed successfully."

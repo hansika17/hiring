@@ -18,8 +18,8 @@
       <div class="px-6 py-3 whitespace-nowrap  text-sm font-medium">
         <%= link_to "Edit", edit_survey_question_path(question.survey, question), class: "btn-inline-edit" %>
         <%= link_to "Delete", survey_question_path(question.survey, question), data: {
-                                                       "turbo-method": :delete,
-                                                     }, class: "btn-inline-delete ml-1" %>
+                                                                                 "turbo-method": :delete,
+                                                                               }, class: "btn-inline-delete ml-1" %>
       </div>
     </div>
   </li>

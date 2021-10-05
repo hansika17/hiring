@@ -10,7 +10,7 @@ class JobTest < ActiveSupport::TestCase
     assert_not job.errors[:name].empty?
   end
 
-  test "should have name unique to tenant" do
+  test "should have name unique " do
     job = Job.new(name: "job")
     assert job.save!
 
@@ -18,8 +18,6 @@ class JobTest < ActiveSupport::TestCase
       job2 = Job.new(name: "job")
       job2.save!
     end
-
-    ActsAsTenant.current_tenant = accounts(:infosys)
 
     job3 = Job.new(name: "job")
     assert job3.save!

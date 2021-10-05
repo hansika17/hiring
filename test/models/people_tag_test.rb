@@ -10,7 +10,7 @@ class PeopleTagTest < ActiveSupport::TestCase
     assert_not people_tag.errors[:name].empty?
   end
 
-  test "should have name unique to tenant" do
+  test "should have name unique" do
     people_tag = PeopleTag.new(name: "people_tag")
     assert people_tag.save!
 
@@ -18,8 +18,6 @@ class PeopleTagTest < ActiveSupport::TestCase
       people_tag2 = PeopleTag.new(name: "people_tag")
       people_tag2.save!
     end
-
-    ActsAsTenant.current_tenant = accounts(:infosys)
 
     people_tag3 = PeopleTag.new(name: "people_tag")
     assert people_tag3.save!

@@ -63,9 +63,7 @@ class AttemptsTest < ApplicationSystemTestCase
     take_screenshot
     @attempt = @survey.attempts.first
     if find("tr", id: dom_id(@attempt))
-      page.accept_confirm do
-        find("tr", id: dom_id(@attempt)).click_link("Delete")
-      end
+      find("tr", id: dom_id(@attempt)).click_link("Delete")
       assert_no_selector dom_id(@attempt), text: @attempt.survey
     end
     take_screenshot

@@ -9,7 +9,7 @@ class SkillTest < ActiveSupport::TestCase
     assert_not skill.errors[:name].empty?
   end
 
-  test "should have name unique to tenant" do
+  test "should have name unique" do
     skill = Skill.new(name: "skill")
     assert skill.save!
 
@@ -17,8 +17,6 @@ class SkillTest < ActiveSupport::TestCase
       skill2 = Skill.new(name: "skill")
       skill2.save!
     end
-
-    ActsAsTenant.current_tenant = accounts(:infosys)
 
     skill3 = Skill.new(name: "skill")
     assert skill3.save!

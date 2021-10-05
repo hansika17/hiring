@@ -10,7 +10,7 @@ class RoleTest < ActiveSupport::TestCase
     assert_not role.errors[:name].empty?
   end
 
-  test "should have name unique to tenant" do
+  test "should have name unique" do
     role = Role.new(name: "role")
     assert role.save!
 
@@ -18,8 +18,6 @@ class RoleTest < ActiveSupport::TestCase
       role2 = Role.new(name: "role")
       role2.save!
     end
-
-    ActsAsTenant.current_tenant = accounts(:infosys)
 
     role3 = Role.new(name: "role")
     assert role3.save!

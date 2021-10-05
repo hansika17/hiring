@@ -65,9 +65,7 @@ class QuestionsTest < ApplicationSystemTestCase
   test "can delete a question" do
     visit page_url
     @question = @survey.questions.first
-    page.accept_confirm do
-      find("li", id: "#{@question.id}").click_link("Delete")
-    end
+    find("li", id: "#{@question.id}").click_link("Delete")
     take_screenshot
     assert_no_text @question.decorate.display_text
   end

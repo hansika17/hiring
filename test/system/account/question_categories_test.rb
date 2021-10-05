@@ -3,12 +3,11 @@ require "application_system_test_case"
 class QuestionCategroiesTest < ApplicationSystemTestCase
   setup do
     @user = users(:regular)
-    @account = @user.account
     sign_in @user
   end
 
   def page_url
-    account_question_categories_url(script_name: "/#{@account.id}")
+    account_question_categories_url
   end
 
   test "can visit the index if logged in" do
@@ -48,7 +47,7 @@ class QuestionCategroiesTest < ApplicationSystemTestCase
   end
 
   test "can visit edit page" do
-    visit edit_account_question_category_url(survey_question_categories(:one), script_name: "/#{@account.id}")
+    visit edit_account_question_category_url(survey_question_categories(:one))
     page.assert_selector(:xpath, "/html/body/turbo-frame/form/li")
   end
 

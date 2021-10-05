@@ -2,15 +2,6 @@ require "test_helper"
 
 class DisciplineTest < ActiveSupport::TestCase
   setup do
-    ActsAsTenant.current_tenant = accounts(:crownstack)
-  end
-
-  test "should have account" do
-    ActsAsTenant.current_tenant = nil
-    assert_raises ActsAsTenant::Errors::NoTenantSet do
-      discipline = Discipline.new(name: "Discipline")
-      discipline.save
-    end
   end
 
   test "should have name" do
@@ -19,7 +10,7 @@ class DisciplineTest < ActiveSupport::TestCase
     assert_not discipline.errors[:name].empty?
   end
 
-  test "should have name unique to tenant" do
+  test "should have name unique" do
     discipline = Discipline.new(name: "Discipline")
     assert discipline.save!
 
@@ -27,8 +18,6 @@ class DisciplineTest < ActiveSupport::TestCase
       discipline2 = Discipline.new(name: "Discipline")
       discipline2.save!
     end
-
-    ActsAsTenant.current_tenant = accounts(:infosys)
 
     discipline3 = Discipline.new(name: "Discipline")
     assert discipline3.save!

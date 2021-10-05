@@ -1,0 +1,45 @@
+<% assignee_decorated = assignee.decorate %>
+<% if assignee_decorated.class.name == "UserDecorator" %>
+  <tr id="<%= dom_id(assignee) %>">
+    <td class="table-cell whitespace-nowrap ">
+      <div class="flex items-center">
+        <div class="flex-shrink-0 w-10 h-10">
+          <%= image_tag "male-placeholder-image.png", class: "w-10 h-10 rounded-full" %>
+        </div>
+        <div class="ml-4">
+          <a href="<%= employee_kpis_path(assignee) %>" class="truncate hover:text-gray-600 hover:underline">
+            <div class="text-sm font-medium text-gray-900">
+              <%= assignee_decorated.display_name %>
+              <div id="employee-tags" class="inline-flex">
+                <%= render partial: "employee/display_tags", locals: { employee: assignee, tags: assignee.people_tags } %>
+              </div>
+            </div>
+            <div class="text-sm text-gray-500">
+              <%= assignee_decorated.display_position %>
+            </div>
+          </a>
+        </div>
+      </div>
+    </td>
+    <td class="table-cell whitespace-nowrap ">
+      <%= link_to "Delete", survey_assignee_path(@survey, assignee), method: :delete, class: "btn-inline-delete", data: { confirm: "Are you sure?" } %>
+    </td>
+  </tr>
+<% else %>
+  <tr id="<%= dom_id(assignee) %>">
+    <td class="table-cell whitespace-nowrap">
+      <div class="flex items-center">
+        <div class="ml-4">
+          <a href="<%= project_surveys_path(assignee) %>" class="truncate hover:text-gray-600 hover:underline">
+            <div class="text-sm font-medium text-gray-900">
+              <%= assignee_decorated.display_name %>
+            </div>
+          </a>
+        </div>
+      </div>
+    </td>
+    <td class="table-cell whitespace-nowrap>
+      <%= link_to "Delete", survey_assignee_path(@survey, assignee), method: :delete, class: "btn-inline-delete", data: { confirm: "Are you sure?" } %>
+    </td>
+  </tr>
+<% end %>

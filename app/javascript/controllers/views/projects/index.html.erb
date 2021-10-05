@@ -1,0 +1,66 @@
+<main class="relative z-0 flex-1 overflow-y-auto focus:outline-none">
+  <!-- Page title & actions -->
+  <div class="px-4 py-4 border-b border-gray-200 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-baseline -mt-2 -ml-2">
+      <h1 class="text-3xl font-bold leading-tight text-gray-900">
+        Projects
+      </h1>
+      <p class="mt-1 ml-1 text-sm text-gray-500 truncate"><%= "(" + @projects.count.to_s + " projects)" %></p>
+    </div>
+    <% if current_user.admin? %>
+      <div class="flex mt-4 sm:mt-0 sm:ml-4">
+        <%= link_to "New Project", new_project_path, class: "btn-blue" %>
+      </div>
+    <% end %>
+  </div>
+  <!-- Projects table (small breakpoint and up) -->
+  <% if @projects.count > 0 %>
+    <div class="hidden sm:block">
+      <div class="inline-block min-w-full align-middle border-b border-gray-200">
+        <table class="table">
+          <thead>
+            <tr class="border-gray-200 bg-gray-50 border-b">
+              <th class=" table-head ">
+                <span class="lg:pl-2">Project</span>
+              </th>
+              <% if current_user.admin? %>
+                <th class="table-head ">
+                  Tags
+                </th>
+                <th class="table-head">
+                  Billed_<%= @projects.map(&:billable_resources).compact.inject(0, &:+) %>
+                </th>
+              <% end %>
+              <th class=" table-head ">
+                Participants
+              </th>
+              <th class="table-head ">
+                Lead
+              </th>
+              <th class="table-head ">
+                Created At
+              </th>
+              <th class="table-head ">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <%= render partial: "project", collection: @projects, cached: true %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <% else %>
+    <div class="w-full text-center sm:rounded-lg">
+      <div class="px-4 py-5 sm:p-6">
+        <h3 class="text-lg font-medium leading-6 text-center text-gray-900">
+          No result found
+        </h3>
+        <div class="mt-2 text-sm text-center text-gray-500">
+          <p>You have not created any project yet. Please click on New Project button to get started.</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</main>

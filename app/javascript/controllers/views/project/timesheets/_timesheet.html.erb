@@ -1,0 +1,16 @@
+<tr>
+  <td class="table-cell whitespace-nowrap">
+    <a href="<%= employee_timesheets_path(timesheet.user) %>" class="block hover:underline">
+      <%= timesheet.user.decorate.display_name %>
+    </a>
+  </td>
+  <td class="w-full table-cell">
+    <%= timesheet.description %>
+  </td>
+  <td class="table-cell whitespace-nowrap">
+    <%= display_date(timesheet.date) %>
+  </td>
+  <td class="table-cell whitespace-nowrap">
+    <%= timesheet.hours %>
+  </td>
+</tr>

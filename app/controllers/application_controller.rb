@@ -37,4 +37,14 @@ class ApplicationController < ActionController::Base
     sign_out(current_user) if current_user
     redirect_to new_user_session_path, alert: "Your session has expired. Please login again."
   end
+
+  def render_partial(partial, collection:, cached: true)
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: { entries: render_to_string(partial: partial, formats: [:html], collection: collection, cached: cached),
+                       pagination: render_to_string(partial: "shared/paginator", formats: [:html], locals: { pagy: @pagy }) }
+      }
+    end
+  end
 end

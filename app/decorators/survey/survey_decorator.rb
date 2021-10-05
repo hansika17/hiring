@@ -4,34 +4,26 @@ class Survey::SurveyDecorator < Draper::Decorator
   def survey_type_color
     if self.checklist?
       "yellow"
-    elsif self.kpi?
-      "green"
     elsif self.score?
       "gray"
     end
   end
 
   def survey_for_color
-    if self.user?
-      "yellow"
-    elsif self.client?
-      "green"
-    elsif self.project?
+    if self.candidate?
       "gray"
+    elsif self.user?
+      "green"
     end
   end
 
   def display_survey_type
-    if self.kpi?
-      "KPIs"
-    else
-      survey_type.titleize
-    end
+    survey_type.titleize
   end
 
   def display_survey_for
-    if self.user?
-      "Employee"
+    if survey_for == "user"
+      "Team"
     else
       survey_for.titleize
     end

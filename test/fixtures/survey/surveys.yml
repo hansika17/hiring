@@ -1,0 +1,7 @@
+user: 
+  name: Project Initiation Checklist
+  description: Survey Description
+  actor: regular
+  survey_for: user
+  survey_type: checklist
+

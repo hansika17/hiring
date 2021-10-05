@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skia</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+    <% if user_signed_in? %>
+      <meta name="current-account", content="<%= Current.account.id %>">
+    <% end %>
+    <meta name="turbo-cache-control" content="no-cache">
+    <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+    <%= stylesheet_pack_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% end %>
+  </head>
+  <body>
+    <% if user_signed_in? %>
+      <%= render "shared/navbar/navbar" %>
+      <div id="modal"></div>
+    <% end %>
+    <p class="text-sm font-medium text-center notice bg-green-50"><%= notice %></p>
+    <p class="text-sm font-medium text-center alert bg-red-50"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

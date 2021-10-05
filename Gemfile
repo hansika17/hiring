@@ -14,7 +14,7 @@ gem "puma", "~> 5.0"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails", "~> 0.1.0"
-
+gem "draper"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails", ">= 0.7.11"
 gem "pundit"
@@ -68,5 +68,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
+gem "pagy"
 gem "hotwire-rails", "~> 0.1.3"

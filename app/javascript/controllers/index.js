@@ -8,3 +8,9 @@ application.register("hello", HelloController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import InfiniteScrollController from "./infinite_scroll_controller"
+application.register("infinite-scroll", InfiniteScrollController)
+
+import NavSearchController from "./nav_search_controller"
+application.register("nav-search", NavSearchController)

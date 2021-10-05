@@ -12,7 +12,22 @@ Rails.application.routes.draw do
     resources :roles, except: [:new, :show]
     resources :disciplines, except: [:new, :show]
     resources :people_tags, except: [:new, :show]
+    resources :question_categories, except: [:new, :show]
   end
+  resources :surveys do
+    resources :questions, module: "survey"
+    resources :assignees, module: "survey", as: "assignees"
+    resources :attempts, module: "survey" do
+      get "questions", to: "attempts#survey_questions", as: "survey_questions"
+    end
+    get "reports/pdf/:id", to: "survey/reports#pdf", as: "report_pdf"
+    get "/attempts/:id/preview", to: "survey/attempts#preview", as: "report_preview"
+    patch "/reports/:id/submit", to: "survey/reports#submit", as: "report_submit"
+    patch "/reports/:id/download", to: "survey/reports#download", as: "report_download"
+    get "/search", to: "search#surveys"
+  end
+
+  get "/surveys/:id/clone", to: "surveys#clone", as: "clone_survey"
 
   scope "/settings" do
     get "/profile", to: "user#profile", as: "profile"

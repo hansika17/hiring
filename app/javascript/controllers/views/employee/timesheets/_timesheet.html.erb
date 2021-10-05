@@ -1,0 +1,23 @@
+<tr id="<%= dom_id timesheet %>">
+  <td class="table-cell whitespace-nowrap">
+    <% if current_user.admin? %>
+      <a href="<%= project_timesheets_path(timesheet.project) %>" class="block hover:underline">
+        <%= timesheet.project.name %>
+      </a>
+    <% else %>
+      <%= timesheet.project.name %>
+    <% end %>
+  </td>
+  <td class="table-cell ">
+    <%= timesheet.description %>
+  </td>
+  <td class="table-cell whitespace-nowrap">
+    <%= display_date(timesheet.date) %>
+  </td>
+  <td class="table-cell whitespace-nowrap">
+    <%= timesheet.hours %>
+  </td>
+  <td class="table-cell">
+    <%= link_to "Delete", employee_timesheet_path(@employee, timesheet), method: :delete, class: "btn-inline-delete pl-2", data: { confirm: "Are you sure?" } %>
+  </td>
+</tr>

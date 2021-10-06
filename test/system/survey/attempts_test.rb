@@ -25,7 +25,7 @@ class AttemptsTest < ApplicationSystemTestCase
   end
 
   test "can not visit index if not logged in" do
-    sign_out @employee
+    sign_out @user
     visit page_url
     assert_selector "h1", text: "Sign in to your account"
   end

@@ -1,11 +1,11 @@
 user:
-  participant: member
+  participant: regular
   actor: regular
   survey: user
   participant_type: User
 
 one:
-  participant: member
+  participant: regular
   actor: regular
   survey: user
   participant_type: User

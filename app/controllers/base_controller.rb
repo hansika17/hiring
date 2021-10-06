@@ -10,4 +10,8 @@ class BaseController < ApplicationController
     return pagy, collection.offset(pagy.offset).limit(pagy.items) if collection.respond_to?(:offset)
     return pagy, collection
   end
+
+  def set_user
+    @user ||= current_user
+  end
 end

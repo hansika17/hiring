@@ -36,6 +36,7 @@
         <div class="md:ml-6 md:flex md:items-center md:space-x-4">
           <% if user_signed_in? %>
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href=<%= root_path %> class="<%= current_page?(root_path) ? "nav-selected" : "nav-unselected" %>" aria-current="page">Home</a>
             <a href=<%= account_people_tags_path %> class="<%= current_page?(account_people_tags_path) ? "nav-selected" : "nav-unselected" %>" aria-current="page" id="menubar">Account</a>
             <a href=<%= surveys_path %> class="<%= current_page?(surveys_path) ? "nav-selected" : "nav-unselected" %>" aria-current="page">Surveys</a>
           <% end %>

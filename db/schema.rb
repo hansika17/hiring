@@ -43,6 +43,11 @@ ActiveRecord::Schema.define(version: 2021_10_05_113852) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "people_tags_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "people_tag_id", null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -53,6 +58,11 @@ ActiveRecord::Schema.define(version: 2021_10_05_113852) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "skills_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "skill_id", null: false
   end
 
   create_table "survey_answers", force: :cascade do |t|
